@@ -1,0 +1,267 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+/* regras css para o site de exemplo
+o que for feito aqui ir´s formatar todas as páginas HTML conectadas com este arquivo  */
+
+/* Selector UNIVERSAL
+Alterando o box Model para todas as tags do HTML */
+* {box-sizing: border-box;}
+
+body {
+    background-image: url(../imagens/tarde.jpg);
+    /* para fixar o tamanho da imagem */
+    background-size: cover;
+    /* para fixar a imagem */
+    background-attachment: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Seletor ID/IDENTIFICADO */
+#container {
+    background-color: #ffffffdc;
+    /* Definindo largura e margem automática, o resultado é a centralização da caixa/container/div */
+    width: 80%; 
+    margin: auto;
+    /* limintando a largura máxima */
+    max-width: 1100px;
+    /* limitando a largura mínima */
+    min-width: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: black 0 4px 20px;
+
+}
+/* Tornando todas as imagens flexíveis/responsivas */
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-family: 'Bungee Spice', cursive;
+    text-align: center;
+    color: white;
+    /* padding: 10px; */
+    background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(26,40,52,0.9360119047619048) 35%, rgba(0,212,255,1) 100%);
+
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 40px;
+    
+}
+
+h2 {
+    background-image: url(../imagens/oriental-tiles.png);
+    color: white;
+    padding: 10px;
+    /* bordas esquerda nas tags h2: altura, cor, solido*/
+    border-left: 8px yellow solid;
+
+    /* bordas direita nas tags h2: altura, cor, solido*/
+    border-right: 8px yellow solid;
+}
+
+/* seletor classe */
+.centralizar {text-align: center;}
+
+.sombra-texto {text-shadow: black 2px 2px 3px;}
+
+.borda-arredondada {border-radius: 8px;}
+
+.destaque {
+    background-color: yellow;
+    /* padding: cima e baixo, esquerda e direita */
+    padding: 1px 4px;
+    border: solid 1px red;
+}
+
+/* Regras para o menu e seus links */
+
+nav {text-align: center;}
+
+/* Regra de estado inicial do link
+Seletor Descendentes  */
+
+nav a {color: white;
+    background-color: black;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    /* border: solid 2px red; */
+    width: 33.33%;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+/* Regra de acionamento do link
+Seletor Descendente + Pseudo-Classe */
+
+/* :hover -> mouse
+    :focus -> foco (teclado, dedo etc)
+*/
+nav a:hover, nav a:focus{
+    background-color: darkblue;
+    transform: translateY(-10px);
+    /* transform: rotateZ(90deg); */
+
+}
+
+figure {
+    text-align: center;
+    /* Tornando o elemento referência para o posicionamento */
+    position: relative;
+    max-width: 419px;
+    margin: 0 auto;
+}
+
+figcaption {
+    width: 100%;
+    font-weight: bold;
+    background-color: rgb(150, 144, 144, 0.745);
+    /* tornando o elemento livre para posicionamento do figcaption*/
+    position: absolute;
+
+    /* cordenadas */
+    bottom: 40px;
+    /* largura de cima */
+    padding-top: 8px;
+    /* largura de baixo */
+    padding-bottom: 8px;
+    /* right: ;
+    top: 0;*/
+}
+
+
+figure {
+    filter: grayscale(100%);
+    transition: 1.5s;
+    /* cursor: pointer; */
+}
+
+figure:hover {
+    filter: none;
+    transform: scale(1.1);
+    /* transform: scale(0.9) */
+}
+
+.centralizar img {
+    clip-path: circle(50% at 50% 50%);
+}
+
+ul {font-family: impact;}
+
+ul li { color: red;}
+
+/* formatando apenas o primeiro li descendente de ul */
+ul li:first-child {color: blue;}
+
+
+/* formatando apenas o último li descendente de ul */
+ul li:last-child {color: green;}
+
+ul li:nth-child(4) {color: blueviolet;}
+
+/* odd -> cores ímpar */
+/* ul li:nth-child(odd) {background-color: black;} */
+
+/* odd -> cores par */
+/* ul li:nth-child(even) {background-color: yellow;} */
+
+
+ul li:nth-child(3n) {background-color: aquamarine;}
+
+
+/* Deixar imagens flutuar */
+.flutuar {
+    float: left;
+    margin-right: 10px;
+}
+
+
+/* Etapa 1: criar regra de animação
+ */
+@keyframes animaCores {
+    /* De: (como inicia) */
+    from {
+        background-color: #ff0037;
+        color: darkblue;
+    }
+
+    /* Para: (como termina) */
+    to {
+        background-color: #12da44;
+        color: brown;
+    }
+}
+
+/*    Etapa 2: aplicar a animação em algum(ns) elementos */
+
+.subtitulo, h3 {
+    /* nome e duração são obrigatórios */
+    animation-name: animaCores;
+    animation-duration: 4s;
+
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+/* BANNER */
+#banner {
+    width: 500px;
+    margin: auto;
+    border: solid 2px;
+    overflow: hidden;
+    position: relative;
+}
+@keyframes animaBanner {
+    from { transform: translateX(-128px); }
+    to { 
+        transform: 
+            translateX(480px) 
+            rotate(360deg)
+            scale(1.1  );
+
+        }
+}
+#banner img {
+    animation-name: animaBanner;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+}
+
+#banner p {
+    will-change: transform;
+
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.555);
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    bottom: 50px;
+    width: 100%;
+
+    /* Aplicando o Keyframes */
+    animation-name: animaParagrafo;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    
+}
+
+
+
+
+
+@keyframes animaParagrafo {
+ 
+    from { transform: scale(1); }
+    to { 
+        transform: scale(1.4  );
+        background-color: rgba(0, 0, 141, 0.589);
+        }
+    
+} 
